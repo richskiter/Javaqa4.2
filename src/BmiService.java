@@ -1,48 +1,29 @@
 public class BmiService {
-    public float calculate(float height, float weight) {
-        if (height > 0) {
-            if (weight > 0) {
-                return weight / (height / 100 * height / 100);
-            }
-        }
-        return 0;
-    }
+    public String calculate(float height, float weight) {
 
-    public String BodyMassIndex(float BMI) {
-        if (BMI <= 16) {
-            if (BMI > 0) {
-                return "Выраженный дефицит массы тела";
-            }
-        }
-        if (BMI > 16) {
-            if (BMI < 18.5) {
-                return "Недостаточная масса тела (дефицит)";
-            }
-        }
-        if (BMI > 18.5) {
-            if (BMI < 25) {
-                return "Нормальная масса тела";
-            }
-        }
-        if (BMI > 25) {
-            if (BMI < 30) {
-                return "Избыточная масса тела (предожирение)";
-            }
-        }
-        if (BMI > 30) {
-            if (BMI < 35) {
-                return "Ожирение I степени";
-            }
-        }
-        if (BMI > 35) {
-            if (BMI < 40) {
-                return "Ожирение II степени";
-            }
-        }
-        if (BMI >= 40) {
-            return "Ожирение III степени";
+        float bmi;
+        // Calculating body mass index
+        if (height > 0 && weight > 0) {
+            bmi = weight / (height / 100 * height / 100);
+        } else {
+            return "Ошибка ввода";
         }
 
+        if (bmi <= 16 && bmi > 0) {
+            return String.format("Body mass index: %.2f  %s", bmi, "Выраженный дефицит массы тела");
+        } if (bmi > 16 && bmi < 18.5) {
+            return String.format("Body mass index: %.2f  %s", bmi, "Недостаточная масса тела (дефицит)");
+        } if (bmi > 18.5 && bmi < 25) {
+            return String.format("Body mass index: %.2f  %s", bmi, "Нормальная масса тела");
+        } if (bmi > 25 && bmi < 25) {
+            return String.format("Body mass index: %.2f  %s", bmi, "Избыточная масса тела (предожирение)");
+        } if (bmi > 30 && bmi < 35) {
+            return String.format("Body mass index: %.2f  %s", bmi, "Ожирение I степени");
+        } if (bmi > 35 && bmi < 40) {
+            return String.format("Body mass index: %.2f  %s", bmi, "Ожирение II степени");
+        } if (bmi >= 40) {
+            return String.format("Body mass index: %.2f  %s", bmi, "Ожирение III степени");
+        }
         return "Ошибка ввода";
     }
 }
